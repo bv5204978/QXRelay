@@ -1,0 +1,25 @@
+# Relay
+# reject,direct,proxy
+
+
+
+# reject
+# 苹果拒绝更新
+#host,appldnld.apple.com,reject
+#host,gdmf.apple.com,reject
+#host,mesu.apple.com,reject
+#host,ns.itunes.apple.com,reject
+#host,xp.apple.com,reject
+
+# 绕过企业证书过期,要清空safari历史记录与网站数据
+#host,ocsp.apple.com,reject
+
+
+# direct
+# Apple
+#host-suffix,courier.push.apple.com,direct
+
+
+# proxy
+host-suffix,tap.io,proxy
+host-suffix,diyihuisuo.com,proxy
