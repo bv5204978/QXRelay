@@ -1,5 +1,5 @@
 /**
- * 京东618
+ * 京东618 20.6.2
  * 
  * https://github.com/chavyleung/scripts/blob/master/jd/jd.618.cookie.js
  * 
