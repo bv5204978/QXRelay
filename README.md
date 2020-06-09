@@ -23,6 +23,11 @@ Task 定时任务执行的js，对应Cookie
 CT 定时任务获取cookie与执行的js
 Main 纯任务直接执行js
 
+#### 维护
+`有空只整自己的，其他抽空常规copy大佬`
+1.JS/Main/weath.task.js, 5日天气
+2.JS/CT/tx.wx.10000.ct.js, 微信公众号安徽电信抽奖
+
 ## 参考来源：
 ### 基本配置
 #### 官方
@@ -57,6 +62,7 @@ https://github.com/KOP-XIAO/QuantumultX/blob/master/README.md
 #### 策略(108.png)
 https://github.com/Koolson/Qure
 #### 节点图标
+等我找一哈～
 
 #### 辅助工具
 [icons8](https://icons8.cn/icons/set/youtube)
