@@ -1,6 +1,6 @@
 /**
  * appstore.app 价格监测 定时任务
- * 20.3.13
+ * 10.10.22
  * 
  * https://github.com/zhiyicai/langkhach270389-Scripting-20191122/blob/master/Appprice.js
  * 

@@ -4,7 +4,7 @@
  * https://github.com/Sunert/Scripts/blob/master/Task/dianshijia.js
  * 
  * 
- * MITM = 
+ * MITM = http不需要mit
  * http:\/\/act\.gaoqingdianshi\.com\/\/api\/v4\/sign\/signin url script-request-header dianshijia.js
 http:\/\/api\.gaoqingdianshi\.com\/api\/v2\/cash\/withdrawal url script-request-header dianshijia.js
  * 
@@ -12,7 +12,10 @@ http:\/\/api\.gaoqingdianshi\.com\/api\/v2\/cash\/withdrawal url script-request-
  */
 
 
+
 /*
+更新时间: 2020-06-08 21:15
+
 赞赏:电视家邀请码`893988`,农妇山泉 -> 有点咸，万分感谢
 
 本脚本仅适用于电视家签到，
@@ -67,13 +70,10 @@ http:\/\/api\.gaoqingdianshi\.com\/api\/v2\/cash\/withdrawal url script-request-
 const walkstep = '20000';//每日步数设置，可设置0-20000
 const logs = 0   //响应日志开关,默认关闭
 const cookieName = '电视家 📺'
-const signurlKey = 'sy_signurl_dsj'
-const signheaderKey = 'sy_signheader_dsj'
-const drawalKey = 'drawal_dsj'
 const sy = init()
-const signurlVal = sy.getdata(signurlKey)
-const signheaderVal = sy.getdata(signheaderKey)
-const drawalVal = sy.getdata(drawalKey)
+const signurlVal = sy.getdata('sy_signurl_dsj')
+const signheaderVal = sy.getdata('sy_signheader_dsj')
+const drawalVal = sy.getdata('drawal_dsj')
 
 let isGetCookie = typeof $request !== 'undefined'
 if (isGetCookie) {
@@ -88,14 +88,14 @@ function GetCookie() {
   const signheaderVal = JSON.stringify($request.headers)
   sy.log(`signurlVal:${signurlVal}`)
   sy.log(`signheaderVal:${signheaderVal}`)
-  if (signurlVal) sy.setdata(signurlVal, signurlKey)
-  if (signheaderVal) sy.setdata(signheaderVal, signheaderKey)
+  if (signurlVal) sy.setdata(signurlVal, 'sy_signurl_dsj')
+  if (signheaderVal) sy.setdata(signheaderVal,  'sy_signheader_dsj')
   sy.msg(cookieName, `获取Cookie: 成功`, ``)
   }
  else if ($request && $request.method != 'OPTIONS'&&$request.url.match(/\/cash\/withdrawal/)) {
   const drawalVal = $request.url
   sy.log(`drawalVal:${drawalVal}`)
-  if (drawalVal) sy.setdata(drawalVal, drawalKey)
+  if (drawalVal) sy.setdata(drawalVal, 'drawal_dsj')
   sy.msg(cookieName, `获取提现地址: 成功`, ``)
   }
  sy.done()
@@ -108,7 +108,7 @@ async function all()
 //await Withdrawal2();// 固定金额
   await act618();     // 618活动
   await taskStatus(); // 任务状态
-  await runtime();    // 运行时间
+//await runtime();    // 运行时间
   await getGametime();// 游戏时长
   await total();      // 总计
   await cash();       // 现金
@@ -116,6 +116,20 @@ async function all()
   await coinlist();   // 金币列表
 }
 
+  var date = new Date();
+  var hour = date.getHours();
+  var sleeping = "";
+   if (hour>20){
+       sleep();
+       CarveUp();
+  }
+   else if(hour > 11&&hour <14){
+       getCUpcoin();
+       walk();
+   }
+   else if(hour > 6&&hour <9){
+       wakeup()
+   }
 function signin() {      
    return new Promise((resolve, reject) =>
      {
@@ -282,22 +296,6 @@ function signinfo() {
     })
   })
 }             
-function runtime() {
-  var date = new Date();
-  var hour = date.getHours();
-  var sleeping = ""
-     if(hour>20){
-       sleep();
-       CarveUp();
-  }
-   else if(hour > 11&&hour <14){
-       getCUpcoin();
-       walk();
-   }
-   else if(hour > 6&&hour <10){
-       wakeup()
-   }
-}
 
 function walk() {
   return new Promise((resolve, reject) => {
@@ -326,17 +324,17 @@ function sleep() {
       if(logs)sy.log(`睡觉任务: ${data}\n`)
       const result = JSON.parse(data)
      if (result.errCode==0){
-      cookieName += result.data.name+'报名成功 🛌'
+      sleeping = result.data.name+'报名成功 🛌'
       }
-else if (result.errCode==4006){
-      cookieName += '   睡觉中😴'
+     else if (result.errCode==4006){
+      sleeping = `   睡觉中😴`
       }
-else {
-      sleeping = ''
-    }
-    }
- catch (e) {
-        sy.msg(cookieName, `睡觉结果: 失败`, `说明: ${e}`)}
+     else {
+      sleeping = ` `
+      }
+     }
+ catch (error) {
+    sy.msg(cookieName, `睡觉结果: 失败`, `说明: ${error}`)}
    })
 resolve()
  })
@@ -442,7 +440,7 @@ if(gamestime){
    else if (i>=7){
    detail += `【任务统计】共完成${i-1}次任务🌷`
 }
-   sy.msg(cookieName, subTitle, detail)
+   sy.msg(cookieName+sleeping, subTitle, detail)
    sy.log(subTitle+`\n`+detail)
    })
 resolve()

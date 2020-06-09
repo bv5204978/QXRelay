@@ -1,8 +1,8 @@
 /**
  * TestFlight车位 定时任务
- * 20.3.13
+ * 20.3.8
  * 
- * https://github.com/nzw9314/QuantumultX/blob/master/Script/testflight.js
+ * https://github.com/songyangzz/QuantumultX/blob/master/testflight.js
  * 
  * 
  * appkey 赋值 "app公测地址key" e.g. "xxx,xxx,xxx" 
@@ -27,8 +27,8 @@
  * 
  */
 
-
- /**
+ 
+/**
  * 参考chavyleung和NobyDa的写法
  * 写入要监测的公测tf appkey，当有空位的时候会弹出通知。
  * 建议task时间间隔小点。
