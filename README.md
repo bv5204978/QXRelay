@@ -1,6 +1,6 @@
 # QXRelay
 ***
-**版本 1.0.9-build276**
+**v1.0.10-build313 2020.6.13**
 
 ## 配置文件
 QuantumultX
@@ -59,7 +59,7 @@ https://github.com/KOP-XIAO/QuantumultX/blob/master/README.md
 #### 策略(108.png)
 https://github.com/Koolson/Qure
 #### 节点图标
-
+https://github.com/Orz-3/mini ==> https://t.me/Orzmini  
 #### 辅助工具
 [icons8](https://icons8.cn/icons/set/youtube)  
 [阿里iconfont](https://www.iconfont.cn/home/index?spm=a313x.7781069.1998910419.2)  

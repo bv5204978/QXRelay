@@ -15,8 +15,8 @@
 
 京东多合一签到脚本
 
-更新时间: 2020.6.8 21:40 v1.12
-有效接口: 28+
+更新时间: 2020.6.12 22:40 v1.14
+有效接口: 29+
 脚本兼容: QuantumultX, Surge, Loon, JSBox, Node.js
 电报频道: @NobyDa 
 问题反馈: @NobyDa_bot 
@@ -121,6 +121,7 @@ async function all() {
       JingDongPet(stop), //京东宠物馆
       JDFlashSale(stop), //京东闪购
       JDRawFresh(stop), //京东生鲜
+      JDOverseas(stop), //京东国际
       JingDongBook(stop), //京东图书
       JDSecondhand(stop), //京东拍拍二手
       JingDMakeup(stop), //京东美妆馆
@@ -150,6 +151,7 @@ async function all() {
     await JingDongPrize(stop); //京东抽大奖
     await JDFlashSale(stop); //京东闪购
     await JDRawFresh(stop); //京东生鲜
+    await JDOverseas(stop); //京东国际
     await JDGroceryStore(stop); //京东超市
     await JingDongClocks(stop); //京东钟表馆
     await JingDongPet(stop); //京东宠物馆
@@ -1982,7 +1984,7 @@ function JingDongJewels(s) {
           "Content-Type": "application/x-www-form-urlencoded",
           Cookie: KEY,
         },
-        body: "body=%7B%22riskParam%22%3A%7B%22eid%22%3A%22O5X6JYMZTXIEX4VBCBWEM5PTIZV6HXH7M3AI75EABM5GBZYVQKRGQJ5A2PPO5PSELSRMI72SYF4KTCB4NIU6AZQ3O6C3J7ZVEP3RVDFEBKVN2RER2GTQ%22%2C%22shshshfpb%22%3A%22v1%5C%2FzMYRjEWKgYe%2BUiNwEvaVlrHBQGVwqLx4CsS9PH1s0s0Vs9AWk%2B7vr9KSHh3BQd5NTukznDTZnd75xHzonHnw%3D%3D%22%2C%22pageClickKey%22%3A%22Babel_Sign%22%2C%22childActivityUrl%22%3A%22https%3A%5C%2F%5C%2Fpro.m.jd.com%5C%2Fmall%5C%2Factive%5C%2FzHUHpTHNTaztSRfNBFNVZscyFZU%5C%2Findex.html%3F%26utm_source%3Diosapp%26utm_medium%3Dappshare%26utm_campaign%3Dt_335139774%26utm_term%3DCopyURL%26ad_od%3Dshare%22%7D%2C%22url%22%3A%22https%3A%5C%2F%5C%2Fpro.m.jd.com%5C%2Fmall%5C%2Factive%5C%2FzHUHpTHNTaztSRfNBFNVZscyFZU%5C%2Findex.html%3F%26utm_source%3Diosapp%26utm_medium%3Dappshare%26utm_campaign%3Dt_335139774%26utm_term%3DCopyURL%26ad_od%3Dshare%22%2C%22params%22%3A%22%7B%5C%22enActK%5C%22%3A%5C%22usKXGEzqMcjq0F3T0UaQ2rXSuEJQBm%2B61RIK7OqJ%2BnYaZs%5C%2Fn4coLNw%3D%3D%5C%22%2C%5C%22isFloatLayer%5C%22%3Afalse%2C%5C%22ruleSrv%5C%22%3A%5C%2200116952_33027362_t1%5C%22%2C%5C%22signId%5C%22%3A%5C%22HwjezpXRACsaZs%5C%2Fn4coLNw%3D%3D%5C%22%7D%22%2C%22geo%22%3A%7B%22lng%22%3A%220.000000%22%2C%22lat%22%3A%220.000000%22%7D%7D&client=apple&clientVersion=8.5.10&openudid=1fce88cd05c42fe2b054e846f11bdf33f016d676&partner=apple&rfs=0000&scope=11&sign=5518c3cf2a19181854ef0fb66ab81e36&st=1588003842878&sv=120"
+        body: "body=%7B%22riskParam%22%3A%7B%22eid%22%3A%22O5X6JYMZTXIEX4VBCBWEM5PTIZV6HXH7M3AI75EABM5GBZYVQKRGQJ5A2PPO5PSELSRMI72SYF4KTCB4NIU6AZQ3O6C3J7ZVEP3RVDFEBKVN2RER2GTQ%22%2C%22shshshfpb%22%3A%22v1%5C%2FzMYRjEWKgYe%2BUiNwEvaVlrHBQGVwqLx4CsS9PH1s0s0Vs9AWk%2B7vr9KSHh3BQd5NTukznDTZnd75xHzonHnw%3D%3D%22%2C%22pageClickKey%22%3A%22Babel_Sign%22%2C%22childActivityUrl%22%3A%22https%3A%5C%2F%5C%2Fpro.m.jd.com%5C%2Fmall%5C%2Factive%5C%2FzHUHpTHNTaztSRfNBFNVZscyFZU%5C%2Findex.html%22%7D%2C%22url%22%3A%22https%3A%5C%2F%5C%2Fpro.m.jd.com%5C%2Fmall%5C%2Factive%5C%2FzHUHpTHNTaztSRfNBFNVZscyFZU%5C%2Findex.html%22%2C%22params%22%3A%22%7B%5C%22enActK%5C%22%3A%5C%22LHJJM12LuKXc4TMfNJAxzdQx46zfllNqmfuzKsdU1RQaZs%5C%2Fn4coLNw%3D%3D%5C%22%2C%5C%22isFloatLayer%5C%22%3Atrue%2C%5C%22ruleSrv%5C%22%3A%5C%2200116952_36178285_t0%5C%22%2C%5C%22signId%5C%22%3A%5C%22jQaB6ncpBLQaZs%5C%2Fn4coLNw%3D%3D%5C%22%7D%22%2C%22geo%22%3A%7B%22lng%22%3A%220.000000%22%2C%22lat%22%3A%220.000000%22%7D%7D&build=167237&client=apple&clientVersion=9.0.0&openudid=1fce88cd05c42fe2b054e846f11bdf33f016d676&partner=apple&scope=11&sign=5373cc6a3966b674711af4e8e1a07f6a&st=1591960944289&sv=101"
       };
       $nobyda.post(JewelsUrl, function(error, response, data) {
         try {
@@ -2605,6 +2607,56 @@ function JingRongDoll(s, type, num) {
   });
 }
 
+function JDOverseas(s) {
+  return new Promise(resolve => {
+    setTimeout(() => {
+      const OverseasUrl = {
+        url: 'https://api.m.jd.com/client.action?functionId=checkin',
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+          Cookie: KEY,
+        },
+        body: "body=%7B%7D&build=167237&client=apple&clientVersion=9.0.0&openudid=1fce88cd05c42fe2b054e846f11bdf33f016d676&partner=apple&scope=11&sign=e27f8b904040a0e3c99b87fc27e09c87&st=1591730990449&sv=101"
+      };
+      $nobyda.post(OverseasUrl, function(error, response, data) {
+        try {
+          if (error) {
+            merge.Overseas.notify = "京东商城-国际: 签到接口请求失败 ‼️‼️"
+            merge.Overseas.fail = 1
+          } else {
+            const Details = LogDetails ? "response:\n" + data : '';
+            if (data.match(/\"type\":\d+?,/)) {
+              console.log("\n" + "京东商城-国际签到成功 " + Details)
+              merge.Overseas.success = 1
+              if (data.match(/\"jdBeanAmount\":[1-9]+/)) {
+                merge.Overseas.bean = data.match(/\"jdBeanAmount\":(\d+)/)[1]
+                merge.Overseas.notify = "京东商城-国际: 成功, 明细: " + merge.Overseas.bean + "京豆 🐶" 
+              } else {
+                merge.Overseas.notify = "京东商城-国际: 成功, 明细: 无京豆 🐶"
+              }
+            } else {
+              console.log("\n" + "京东商城-国际签到失败 " + Details)
+              merge.Overseas.fail = 1
+              if (data.match(/(\"code\":\"13\"|重复签到)/)) {
+                merge.Overseas.notify = "京东商城-国际: 失败, 原因: 已签过 ⚠️"
+              } else if (data.match(/\"code\":\"-1\"/)) {
+                merge.Overseas.notify = "京东商城-国际: 失败, 原因: Cookie失效‼️"
+              } else {
+                merge.Overseas.notify = "京东商城-国际: 失败, 原因: 未知 ⚠️"
+              }
+            }
+          }
+          resolve()
+        } catch (eor) {
+          $nobyda.notify("京东商城-国际" + eor.name + "‼️", JSON.stringify(eor), eor.message)
+          resolve()
+        }
+      })
+    }, s)
+    if (out) setTimeout(resolve, out + s)
+  });
+}
+
 function TotalSteel() {
   return new Promise(resolve => {
     const SteelUrl = {
@@ -2726,6 +2778,7 @@ function initial() {
     JDBook: {},
     JDShand: {},
     JDMakeup: {},
+    Overseas: {},
     JDWomen: {},
     JRGame: {},
     JRSeeAds: {},
@@ -2806,7 +2859,7 @@ function GetCookie() {
       $nobyda.notify("写入京东Cookie失败", "", "请检查匹配URL或配置内脚本类型 ‼️");
     }
   } catch (eor) {
-    $nobyda.notify("写入京东Cookie失败", "", "未知错误 ‼️")
+    $nobyda.notify("写入京东Cookie失败", "", '请手动开启脚本内 "DeleteCookie" 选项, \n清空Cookie后尝试 ‼️')
     console.log(JSON.stringify(eor) + "\n" + eor + "\n" + JSON.stringify($request.headers))
   }
   $nobyda.done()
