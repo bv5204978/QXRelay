@@ -1,5 +1,5 @@
 /**
- * 腾讯.新闻 赚钱 20.6.8
+ * 腾讯.新闻 赚钱 20.6.15
  * 
  * https://github.com/Sunert/Scripts/blob/master/Task/txnews.js
  * 
@@ -12,7 +12,7 @@
 
 
 /*
-更新时间: 2020-06-08 20:45
+更新时间: 2020-06-13 00:45
 腾讯新闻签到修改版，可以自动阅读文章获取红包，该活动为瓜分百万阅读红包挑战赛，针对幸运用户参与
 获取Cookie方法:
 1.把以下配置复制到响应配置下
@@ -21,7 +21,7 @@
 4.可能腾讯有某些限制，有些号码无法领取红包，手动阅读几篇，能领取红包，一般情况下都是正常的，
 5.此脚本根据阅读篇数开启通知，默认20篇，此版本和另一版本相同
 6.版本更新日志:
-v0606.1 修复无法自动获取视频红包，修改通知为阅读红包到账通知，或者自定义常开
+1.01 修复无法自动获取视频红包，修改通知为视频红包到账通知间隔，即有红包到账且红包数除以间隔余0时通知，或者自定义常开或常关，
 
 ---------------------
 Surge 4.0
@@ -55,7 +55,7 @@ hostname = api.inews.qq.com
 Cookie获取后，请注释掉Cookie地址。
 
 */
-const notify = 0; //开启通知1，关闭为0
+const notifyInterval = 4; //视频红包间隔通知开为1，常关为0
 const logs = 0; // 日志开关，0为关，1为开
 const cookieName = '腾讯新闻'
 const sy = init()
@@ -85,6 +85,8 @@ async function all()
   await getsign();
   await toRead();
   await lookVideo();
+  await openApp();
+  await shareApp();
   await StepsTotal();
   await StepsTotal2();
   await RednumCheck();
@@ -109,6 +111,7 @@ function getsign() {
       else {
        sy.msg('签到失败，🉐登录腾讯新闻app获取cookie', "", "")
        console.log('签到失败，🉐登录腾讯新闻app获取cookie'+data)
+       return
      }
   resolve()
     })
@@ -164,7 +167,19 @@ function lookVideo() {
    })
  }
 
-
+function shareApp() {
+  ID = signurlVal.match(/devid=[a-zA-Z0-9_-]+/g)
+return new Promise((resolve, reject) => {
+  const shareUrl = {
+    url: `https://url.cn/gaYNDrRV?${ID}&uid=543676667&from=singlemessage&isappinstalled=0`,
+    headers: {Cookie: cookieVal},
+  }
+   sy.get(shareUrl, (error, response, data) => {
+    //sy.log(`${cookieName}- data: ${data}`)
+      })
+    resolve()
+   })
+}
 //阅读文章统计
 function StepsTotal() {
   const ID =  signurlVal.match(/devid=[a-zA-Z0-9_-]+/g)
@@ -220,7 +235,7 @@ totalnum.data.show_list[1].schedule.current
 function RednumCheck() {
   var date = new Date();
   var hour = date.getHours();
-  redpackres = ""
+      redpackres = ""
   if(readcoins=="红包+1"){
     Redpack()
   }
@@ -234,6 +249,26 @@ function RednumCheck() {
    }
   }
 }
+
+function openApp() {
+   ID = signurlVal.match(/devid=[a-zA-Z0-9_-]+/g)
+return new Promise((resolve, reject) => {
+  const openUrl = {
+    url: `https://api.inews.qq.com/activity/v1/activity/redpack/get?isJailbreak=0&${ID}`,
+    headers: {Cookie: cookieVal},
+    body: `redpack_type=free_redpack&activity_id=${RedID}`
+  }
+   sy.post(openUrl, (error, response, data) => {
+    sy.log(`${cookieName}每日开启- data: ${data}`)
+      let opcash = JSON.parse(data)
+      if(opcash.data.award.num){
+       redpackres = `【每日开启】到账`+opcash.data.award.num/100+` 元 🌷\n` 
+        }
+      })
+    resolve()
+   })
+}
+
 //阶梯红包到账
 function Redpack() {
    ID = signurlVal.match(/devid=[a-zA-Z0-9_-]+/g)
@@ -254,7 +289,6 @@ return new Promise((resolve, reject) => {
             }
        redpackres += `【阅读红包】到账`+readredpack+` 元 🌷\n` 
            }
-    sy.log(redpackres)
       resolve()
       })
    })
@@ -281,8 +315,7 @@ return new Promise((resolve, reject) => {
         redpackres += `【视频红包】到账`+videoredpack+` 元 🌷\n` 
          }
        },100)
-    sy.log(redpackres)
-     resolve()
+      resolve()
       })
    })
 }
@@ -308,14 +341,15 @@ return new Promise((resolve, reject) => {
 
 function showmsg() {
  return new Promise((resolve, reject) => {
-    detail = signinfo+ redpackres + `【文章阅读】已读/再读: `+ readnum +`/`+readtitle+` 篇\n`+`【阅读红包】已开/总计: `+openreadred+`/`+readredtotal+` 个🧧\n`+ `【观看视频】已看/再看: `+ videonum +`/`+videotitle+` 分钟\n`+`【视频红包】已开/总计: `+openvideored+`/`+videoredtotal+` 个🧧\n【每日一句】`+Dictum
-   if(videocoins=="红包+1"){
+   detail = signinfo+ redpackres + `【文章阅读】已读/再读: `+ readnum +`/`+readtitle+` 篇\n`+`【阅读红包】已开/总计: `+openreadred+`/`+readredtotal+` 个🧧\n`+ `【观看视频】已看/再看: `+ videonum +`/`+videotitle+` 分钟\n`+`【视频红包】已开/总计: `+openvideored+`/`+videoredtotal+` 个🧧\n【每日一句】`+Dictum
+   if
+(openvideored%notifyInterval==0&&videocoins=="红包+1"){
    sy.msg(cookieName,subTile,detail)
   }
    else if (openreadred==readredtotal&&openvideored==videoredtotal){
    sy.msg(cookieName+` 今日任务已完成✅`,subTile,detail)
   }
-   else if (notify){
+   else if(notifyInterval==1){
    sy.msg(cookieName,subTile,detail)
   }
   sy.log(subTile+`\n`+detail)
