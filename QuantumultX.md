@@ -272,8 +272,7 @@ Connection: keep-alive
 #
 [task_local]
 # cron语法
-# * * * * * 分别是 分(0-59)，时(0-23)，天(1-31)，月(1-12)，周(0-6 周日=0)       *代表所有 /代表每 -代表[] ,代表和
-# e.g.  0 */2 * * * xxx.js 每2个小时        0 4 1 1 * xxx.js 1月1日早上4点      0 0-7,12-4/2 * 4 * xxx.js 4月每天0到7点和12点到4点每2小时
+# * * * * * * 分别是 秒(0-59), 分(0-59), 时(0-23), 天(1-31), 月(1-12), 周(0-6 周日=0)       *代表所有 /代表每 -代表[] ,代表和# e.g.  0 */2 * * * xxx.js 每2个小时        0 4 1 1 * xxx.js 1月1日早上4点      0 0-7,12-4/2 * 4 * xxx.js 4月每天0到7点和12点到4点每2小时
 ;* * * * * sample-task.js
 ;* * * * * sample-task2.js, img-url=https://raw.githubusercontent.com/crossutility/Quantumult-X/master/quantumult-x.png, tag=Sample, enabled=true
 
