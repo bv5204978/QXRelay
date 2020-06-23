@@ -91,7 +91,7 @@ server=8.8.8.8
 ;round-robin=policy-name-3, Sample-A, Sample-B, Sample-C
 # ssid 策略组, 可嵌套策略组, 根据 网络/Wi-Fi 切换 节点/策略
 ;ssid=policy-name-4, Sample-A, Sample-B, LINK_22E171:Sample-B, LINK_22E172:Sample-C
-# resource-tag-regex, server-tag-regex 参数正则筛选订阅名节点名, 支持前三种策略组, 同时使用取交集, 筛选为空走直连, 不可再混搭节点或其余策略组
+# resource-tag-regex, server-tag-regex 参数正则筛选订阅名节点名, 支持前三种策略组, 同时使用取交集, 筛选为空走直连, 不可再混搭节点或其余策略组(static支持正则前加reject,direct,proxy)
 ;static=policy-name-5, resource-tag-regex=^sample, server-tag-regex=^example, img-url=http://example.com/icon.png
 ;available=policy-name-6, resource-tag-regex=^sample, server-tag-regex=^example
 ;round-robin=policy-name-7, resource-tag-regex=^sample, server-tag-regex=^example

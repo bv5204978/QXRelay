@@ -18,6 +18,7 @@
 # direct
 # Apple
 #host-suffix,courier.push.apple.com,direct
+host-suffix,audiomack.com,direct
 
 
 # proxy
