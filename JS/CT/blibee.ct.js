@@ -1,5 +1,5 @@
 /**
- * blibee便利蜂 签到
+ * blibee便利蜂 签到 20.6.29
  * 
  * https://github.com/zZPiglet/Task/blob/master/Blibee/Blibee.js
  * 
@@ -39,8 +39,9 @@ Author: zZPiglet
 
 ----------
 最新版本：
-- 2020/04/29:
-更新 shareCode
+- 2020/06/29:
+增加签到得会员信息判断，修复自动领取任务错误，尝试修复不会完成任务。
+鉴于目前礼金有效期为获取后一年，兑换蜂蜜或优惠券有效期为兑换后一周，故取消自动兑换的计划，请使用时先手动兑换优惠。
 - 2020/04/29：
 增加自动签到领礼金（礼金可兑换蜂蜜付款时抵扣，或兑换门店满减券），增加自动领取所有任务，增加自动完成除消费、邀请类任务。
 脚本中使用了我的邀请签到 aff（每日最多 5 次 1～6 礼金），若不希望使用，可将 shareCode 改空。
@@ -74,7 +75,7 @@ hostname = h5.bianlifeng.com
 
 
 const version = '/v1'
-const shareCode = '3570061933985834'
+const shareCode = '3570065352703791'
 const homeURL = 'https://h5.bianlifeng.com/meepo/taskCenter/home' + version
 const signInURL = 'https://h5.bianlifeng.com/meepo/taskCenter/today/signIn' + version
 const receiveURL = 'https://h5.bianlifeng.com/meepo/taskCenter/task/receive' + version
@@ -100,6 +101,7 @@ async function Sign() {
             await signIn()
         }
         await receive()
+        await Valid()
         await finish()
         await result()
         await notify()
@@ -232,6 +234,7 @@ function receive() {
             let taskStatus = task.status
             let actionName = task.actionName
             let param = JSON.stringify(task.param)
+            param = param ? param : '{}'
             let taskName = task.taskName
             if (taskStatus == "init") {
                 const bodyValue = '{"actionName":"' + actionName+ '","param":' + param + '}'
@@ -261,44 +264,33 @@ function receive() {
 
 function finish() {
     return new Promise(resolve => {
-        const home = {
-            url: homeURL,
-            headers: datainfo.headers1,
-            body: '{"all":true,"page":{"pageSize":10,"pageNo":1}}'
-        }
-        datainfo.finishPoints = 0
-        datainfo.finishFail = 0
-        $cmp.post(home, function (error, response, data) {
-            const homeobj = JSON.parse(data)
-            const tasklist = homeobj.data.taskListVo.taskItemVos
-            for (let task of tasklist) {
-                let taskStatus = task.status
-                let taskId = task.taskId
-                let taskName = task.taskName
-                let taskDesc = task.desc
-                if (taskStatus == 'doing') {
-                    const finish = {
-                        url: finishURL + '?taskId=' + taskId,
-                        headers: datainfo.headers2
-                    }
-                    $cmp.get(finish, function (error, response, data) {
-                        try {
-                            const finishobj = JSON.parse(data)
-                            if (finishobj.status == '0') {
-                                datainfo.finishPoints += Number(finishobj.data.pointAmount)
-                            } else {
-                                $cmp.log(cookieName + ' ' + taskName + "任务未完成：" + taskDesc)
-                                undoList[datainfo.finishFail] = taskName
-                                descList[datainfo.finishFail] = taskDesc
-                                datainfo.finishFail += 1
-                            }
-                        } catch (e) {
-                            $cmp.notify(cookieName + "做" + taskName + "任务" + e.name + "‼️", JSON.stringify(e), e.message)
-                        }
-                    })
+        for (let task of datainfo.tasklist) {
+            let taskStatus = task.status
+            let taskId = task.taskId
+            let taskName = task.taskName
+            let taskDesc = task.desc
+            if (taskStatus == 'doing') {
+                const finish = {
+                    url: finishURL + '?taskId=' + taskId,
+                    headers: datainfo.headers2
                 }
+                $cmp.get(finish, function (error, response, data) {
+                    try {
+                        const finishobj = JSON.parse(data)
+                        if (finishobj.status == '0') {
+                            datainfo.finishPoints += Number(finishobj.data.pointAmount)
+                        } else {
+                            $cmp.log(cookieName + ' ' + taskName + "任务未完成：" + taskDesc)
+                            undoList[datainfo.finishFail] = taskName
+                            descList[datainfo.finishFail] = taskDesc
+                            datainfo.finishFail += 1
+                        }
+                    } catch (e) {
+                        $cmp.notify(cookieName + "做" + taskName + "任务" + e.name + "‼️", JSON.stringify(e), e.message)
+                    }
+                })
             }
-        })
+        }
         resolve()
     })
 }
@@ -315,10 +307,6 @@ function result() {
             try{
                 datainfo.allpoints = homeobj.data.myPoint
                 datainfo.topDesc = homeobj.data.taskListVo.topDesc
-                if (homeobj.data.signInTaskVo.shareId != shareCode) {
-                    $cmp.log('📌shareCode: ' + homeobj.data.signInTaskVo.shareId)
-                    datainfo.codeStatus = 'change'
-                }
                 resolve()
             } catch (e) {
                 $cmp.notify(cookieName + "结果主页" + e.name + "‼️", JSON.stringify(e), e.message)
@@ -344,7 +332,7 @@ function notify() {
             } else {
                 if (datainfo.signIn.status == '0') {
                     Title += '签到成功！🎉'
-                    detail += '签到获得 ' + datainfo.signIn.data.pointAmount + ' ' + datainfo.pointUnit + '，'
+                    detail += datainfo.signIn.data.pointAmount ? '签到获得 ' + datainfo.signIn.data.pointAmount + ' ' + datainfo.pointUnit + '，' : datainfo.signIn.data.desc + '，'
                 } else {
                     $cmp.log("blibee failed response: \n" + JSON.stringify(datainfo.signIn))
                     Title += '签到失败‼️'
@@ -367,8 +355,7 @@ function notify() {
                 }
             }
             subTitle += datainfo.topDesc
-            detail += '账户共有 ' + datainfo.allpoints + ' ' + datainfo.pointUnit
-            if (datainfo.codeStatus) detail += '。'
+            detail += '账户共有 ' + datainfo.allpoints + ' ' + datainfo.pointUnit + '。'
             $cmp.notify(Title, subTitle, detail + errormessage)
             resolve()
         } catch (e) {

@@ -1,6 +1,6 @@
 /**
  * TestFlight车位 定时任务
- * 20.3.8
+ * 20.6.22
  * 
  * https://github.com/songyangzz/QuantumultX/blob/master/testflight.js
  * 
@@ -27,7 +27,7 @@
  * 
  */
 
- 
+
 /**
  * 参考chavyleung和NobyDa的写法
  * 写入要监测的公测tf appkey，当有空位的时候会弹出通知。
@@ -174,3 +174,7 @@ function init() {
     }
     return { isSurge, isQuanX, msg, log, getdata, setdata, get, post, done }
   }
+  
+    
+        
+  

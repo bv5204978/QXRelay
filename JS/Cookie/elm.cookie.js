@@ -1,5 +1,5 @@
 /**
- * 饿了么 签到 20.3.5
+ * 饿了么 签到 20.6.22
  * 
  * https://github.com/songyangzz/QuantumultX/blob/master/elem/elemGetCookies.js
  * 
