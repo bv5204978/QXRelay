@@ -59,8 +59,8 @@ https://github.com/nzw9314/QuantumultX/blob/master/README.md ==> copy all ==> no
 ### 资源解析器+ip信息
 https://github.com/KOP-XIAO/QuantumultX/blob/master/README.md
 
-### 图标
-#### 策略(108.png)
+### 图标(108.png)
+#### 策略
 https://github.com/Koolson/Qure
 #### 节点任务图标
 https://github.com/Orz-3/mini ==> https://t.me/Orzmini  
