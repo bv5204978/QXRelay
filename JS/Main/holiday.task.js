@@ -49,20 +49,22 @@ $task.fetch(url).then(response => {
             let eTime = new Date(imp.end).getTime()
             let eDay = (eTime - currTime) / 1000 / 3600 / 24
 
-            if (sDay > 0 && sDay <= 30) {
-                more = more + `\n距离【${imp.name}】还有【${sDay}】天, 为期${eDay - sDay + 1}天`
-            } else if (eDay > 0) {
-                more = more + `\n距离【${imp.name}】结束还有【${eDay}】天`
+            if (sDay <= 30) {
+                if (sDay > 0) {
+                    more = more + `\n距离【${imp.name}】还有【${sDay}】天, 为期${eDay - sDay + 1}天`
+                } else if (eDay > 0) {
+                    more = more + `\n距离【${imp.name}】结束还有【${eDay}】天`
+                }
             }
         }
     }
 
     if (more.length > 0) {
         console.log(`倒数日:\n${more}`)
-        $notify("倒数日", more, "")
+        $notify("倒数日", "", more)
     }
 
 }, reason => {
     console.log(`倒数日:\n${reason.error}`)
-    $notify("倒数日", reason.error, "")
+    $notify("倒数日", "", reason.error)
 })
