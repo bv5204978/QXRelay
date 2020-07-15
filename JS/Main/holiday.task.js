@@ -59,7 +59,7 @@ $task.fetch(url).then(response => {
 
     if (more.length > 0) {
         console.log(`倒数日:\n${more}`)
-        // $notify("倒数日", more, "")
+        $notify("倒数日", more, "")
     }
 
 }, reason => {
