@@ -27,6 +27,7 @@ Main 纯任务直接执行js
 `有空只整自己的，其他抽空常规copy大佬`  
 1.JS/Main/weath.task.js, 5日天气  
 2.JS/CT/tx.wx.10000.ct.js, 微信公众号安徽电信抽奖  
+3.JS/Main/holiday.task.js, 倒数日  
 
 ## 参考来源：
 ### 基本配置
