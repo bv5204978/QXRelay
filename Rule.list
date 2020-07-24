@@ -23,4 +23,5 @@ host-suffix,audiomack.com,direct
 
 # proxy
 host-suffix,tap.io,proxy
+host-suffix,rsshub.app,proxy
 host-suffix,diyihuisuo.com,proxy
