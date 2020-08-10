@@ -1,5 +1,5 @@
 /**
- * 91vip
+ * 91 vip 20.1.12
  * 
  * https://github.com/NobyDa/Script/blob/master/QuantumultX/File/91.js
  * 
@@ -31,4 +31,3 @@ if (obj.data.match(/^[A-Z0-9]{1000,40000}$/)) {
 $done({
 	body: JSON.stringify(obj)
 });
- // From NobyDa, Welcome to focus on my TG channel @NobyDa

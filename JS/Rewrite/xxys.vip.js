@@ -1,5 +1,5 @@
 /**
- * 小小影视vip
+ * 小小影视vip 8.1
  * 
  * https://github.com/NobyDa/Script/blob/master/QuantumultX/File/xxys.js
  * new https://github.com/Sunert/Scripts/blob/master/Script/xxys.js
@@ -14,21 +14,13 @@
 
 /*
 小小影视 unlock Vip
-
 app 下载地址:http://t.cn/AiWI7o28
-
 电报交流频道：https://t.me/ThorHCC
 QQ交流：189519867
-
 QX:
-
 [rewrite_local]👇
-
 https:\/\/.*\..*\.com\/(vod\/reqplay\/|ucp/index|getGlobalData) url script-response-body xxys.js
-
-
 MITM = *.*apps.com, *.xiao*.com
-
 */
 
 const path1 = "/ucp/index";
