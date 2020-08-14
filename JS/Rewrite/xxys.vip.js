@@ -7,7 +7,7 @@
  * 
  * 
  * MITM = *.xxjjappss.com,*.xjxjappss.com
- * ^https:\/\/[a-z0-9]+\.[xxjj|xjxj]appss\.com\/(ucp\/index|vod\/reqplay|getGlobalData) url script-response-body https://raw.githubusercontent.com/bv5204978/QXRelay/master/JS/Rewrite/xxys.vip.js
+ * ^https:\/\/[a-z0-9]+\.(xxjj|xjxj)appss\.com\/(ucp\/index|vod\/reqplay|getGlobalData) url script-response-body https://raw.githubusercontent.com/bv5204978/QXRelay/master/JS/Rewrite/xxys.vip.js
  * 
  * 商店下载easyknowlege 
  */
