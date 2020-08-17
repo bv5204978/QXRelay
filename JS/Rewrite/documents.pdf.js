@@ -23,5 +23,3 @@ obj= {
 };
 
 $done({body: JSON.stringify(obj)});
-
-// Descriptions

@@ -7,10 +7,12 @@
  * imps 自定义节日
  * {"name":"节日名称", "start":"开始日期", "end":"结束日期(可省略)"}
  * 日期格式 xxxx-xx-xx
+ * gapDay 多少天以内提醒(天)
  */
 
 
 let imps = [{"name":"霜繁的生日", "start":"2020-10-21"}]
+let gapDay = 35
 
 var url = {
     url:"https://raw.githubusercontent.com/bv5204978/QXRelay/master/Api/holiday.json"
@@ -27,6 +29,13 @@ $task.fetch(url).then(response => {
 
     let currTime = new Date(curr).getTime()
 
+    // //校正日期格式
+    // for (var i in imps_list) {
+    //     var imp = imps_list[i]
+    //     imp.
+
+    // }
+
     //排序
     imps_list.sort((a, b) => (new Date(a.start) - new Date(b.start)));
     
@@ -42,14 +51,14 @@ $task.fetch(url).then(response => {
         let sDay = (sTime - currTime) / 1000 / 3600 / 24
 
         if (imp.start == imp.end) {
-            if (sDay > 0 && sDay <= 30) {
+            if (sDay > 0 && sDay <= gapDay) {
                 more = more + `\n距离【${imp.name}】还有【${sDay}】天`
             }
         } else {
             let eTime = new Date(imp.end).getTime()
             let eDay = (eTime - currTime) / 1000 / 3600 / 24
 
-            if (sDay <= 30) {
+            if (sDay <= gapDay) {
                 if (sDay > 0) {
                     more = more + `\n距离【${imp.name}】还有【${sDay}】天, 为期${eDay - sDay + 1}天`
                 } else if (eDay > 0) {
