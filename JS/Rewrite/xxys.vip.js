@@ -12,7 +12,7 @@
  * 商店下载easyknowlege 
  */
 
- 
+
 const path1 = "/ucp/index";
 const path2 = "/vod/reqplay/";
 
@@ -29,7 +29,7 @@ if ($request.url.indexOf(path1) != -1) {
 	obj.data.uinfo["play_daily_remainders"] = "233";
 	obj.data.uinfo["goldcoin"] = "233";
 
-	obj.data.uinfo["curr_group"] = obj.data.groups[obj.data.groups.length - 1];
+	obj.data.uinfo["curr_group"] = "5"//obj.data.groups[obj.data.groups.length - 1];
 }
 
 if ($request.url.indexOf(path2) != -1) {

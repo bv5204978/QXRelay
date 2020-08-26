@@ -44,17 +44,17 @@ https://github.com/privacy-protection-tools/anti-AD     广告
 
 ### 进阶配置 JS 主要源引
 https://github.com/NobyDa/Script/blob/master/README.md ==> 野比大雄:all ==> https://t.me/NobyDa  
-https://github.com/chavyleung/scripts/blob/master/README.md ==> 签到m ==> none  
-https://github.com/yichahucha/surge/blob/master/README.md ==> 比价 ==> none  
-https://github.com/zhiyicai/langkhach270389-Scripting-20191122/blob/master/README.md ==> JS.yd ==> none  
-https://github.com/Peng-YM/QuanX/blob/master/README.md ==> JS.task => https://t.me/cool_scripts  
-https://github.com/NavePnow/Profiles/blob/master/README.md ==> JS.l ==> https://t.me/Leped_Channel  
-https://github.com/Sunert/Scripts/blob/master/README.md ==> ship2+ ==> none  
-https://github.com/zZPiglet/Task/blob/master/README.md ==> JS.l ==> none  
-https://github.com/songyangzz/QuantumultX/blob/master/README.md ==> JS.l ==> none  
-https://github.com/primovist/ScriptsForSurge/blob/master/ReadMe.md ==> ad2 ==> none  
-https://github.com/liuxiaoyucc/jd-helper/blob/master/README.md ==> JS.fruit ==> none  
-https://github.com/nzw9314/QuantumultX/blob/master/README.md ==> copy all ==> none  
+https://github.com/chavyleung/scripts/blob/master/README.md ==> chavyleung:签到+Box.js ==> none  
+https://github.com/yichahucha/surge/blob/master/README.md ==> yichahucha:比价 ==> none  
+https://github.com/zhiyicai/langkhach270389-Scripting-20191122/blob/master/README.md ==> langkhach270389:JS.阿三vip ==> none  
+https://github.com/Peng-YM/QuanX/blob/master/README.md ==> Peng-YM:JS.task => https://t.me/cool_scripts  
+https://github.com/primovist/ScriptsForSurge/blob/master/ReadMe.md ==> primovist:ad2 ==> none  
+https://github.com/NavePnow/Profiles/blob/master/README.md ==> NavePnow:JS.l ==> https://t.me/Leped_Channel  
+https://github.com/zZPiglet/Task/blob/master/README.md ==> zZPiglet:JS.l ==> none  
+https://github.com/songyangzz/QuantumultX/blob/master/README.md ==> songyangzz:JS.l ==> none  
+https://github.com/liuxiaoyucc/jd-helper/blob/master/README.md ==> liuxiaoyucc:JS.fruit ==> none  
+https://github.com/nzw9314/QuantumultX/blob/master/README.md ==> nzw9314:copy all ==> none  
+https://github.com/Sunert/Scripts/blob/master/README.md ==> Sunert:stop ==> none  
 
 ## 其他
 ### 资源解析器+ip信息
