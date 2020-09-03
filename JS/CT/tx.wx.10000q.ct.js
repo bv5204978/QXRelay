@@ -40,9 +40,9 @@ function getToken() {
     let b = $prefs.setValueForKey(urlVal, `${task_name}.url`)
 
     if (b) {
-        msg = `获取Url: 成功 \n${bodyVal}`
+        msg = `查询Url保存成功 \n${urlVal}`
     } else {
-        msg = "Url 保存失败"
+        msg = "查询Url保存失败"
     }
 
     console.log(`${task_name}: ${msg}`)
@@ -66,7 +66,7 @@ function signIn() {
 
     var url = {
         url: urlVal,
-        method: "Get",
+        method: "GET",
         headers: {
             "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
         }
