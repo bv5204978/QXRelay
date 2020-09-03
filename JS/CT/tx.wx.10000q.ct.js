@@ -1,20 +1,20 @@
 /**
- * 腾讯.微信.公众号.安徽电信.抽奖
+ * 腾讯.微信.小程序.安徽电信.查询
  * 
- * @shuangfan 2020.5.19
- * https://github.com/bv5204978/QXRelay/blob/master/JS/CT/tx.wx.10000.ct.js
+ * @shuangfan 2020.9.3
+ * https://github.com/bv5204978/QXRelay/blob/master/JS/CT/tx.wx.10000q.ct.js
  * 
  * 
- * MITM = ahds.10006.info
- * ^http:\/\/ahds\.10006\.info\/ahdxcj\/cj\.do url script-request-body JS/CT/tx.wx.10000.ct.js
+ * MITM = ahxcx.10006.info
+ * ^http:\/\/ahxcx\.10006\.info\/xcxahwx\/detailinfo2\.do url script-request-body JS/CT/tx.wx.10000q.ct.js
  * 
- * 微信.公众号.安徽电信.充值办理.领优惠券.幸运大转盘.抽奖
+ * 微信.公众号.小程序.安徽电信.查询
  */
 
 
- 
 
-var task_name = "微信.电信.抽奖"
+
+var task_name = "微信.电信.查询"
 
 const isRequest = typeof $request != "undefined"
 // const isResponse = typeof $response != "undefined"
@@ -31,23 +31,18 @@ if (isRequest) {
 
 function getToken() {
 
-    const cookieVal = $request.headers['Cookie']
-    const bodyVal = $request.body
+    // const cookieVal = $request.headers['Cookie']
+    const urlVal = $request.url
 
-    console.log(`cookieVal: ${cookieVal}\nbodyVal: ${bodyVal}`)
+    console.log(`urlVal: ${urlVal}`)
 
     var msg = "NONE"
-    if (cookieVal != null && bodyVal != null) {
-        let c = $prefs.setValueForKey(cookieVal, `${task_name}.cookie`)
-        let b = $prefs.setValueForKey(bodyVal, `${task_name}.body`)
+    let b = $prefs.setValueForKey(urlVal, `${task_name}.url`)
 
-        if (c && b) {
-            msg = `获取Cookie: 成功 \n${cookieVal}\n${bodyVal}`
-        } else {
-            msg = "Cookie 保存失败"
-        }
+    if (b) {
+        msg = `获取Url: 成功 \n${bodyVal}`
     } else {
-        msg = "Cookie 获取失败，可能需要更新脚本"
+        msg = "Url 保存失败"
     }
 
     console.log(`${task_name}: ${msg}`)
@@ -58,45 +53,36 @@ function getToken() {
 
 function signIn() {
 
-    let cookieVal = $prefs.valueForKey(`${task_name}.cookie`)
-    let bodyVal = $prefs.valueForKey(`${task_name}.body`)
+    let urlVal = $prefs.valueForKey(`${task_name}.url`)
 
-    if (cookieVal == null || bodyVal == null) {
+    if (urlVal == null) {
 
-        console.log(`${task_name} 请先获取Cookie`)
-        $notify(task_name, "", "请先获取Cookie")
+        console.log(`${task_name} 请先获取Url`)
+        $notify(task_name, "", "请先获取Url")
 
         return
     }
 
 
     var url = {
-        url: 'http://ahds.10006.info/ahdxcj/cj.do',
-        method: "POST",
+        url: urlVal,
+        method: "Get",
         headers: {
             "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
-            Cookie: cookieVal
-        },
-        "body": bodyVal
+        }
     }
-    
+
     $task.fetch(url).then(response => {
         let body = JSON.parse(response.body)
 
-        let code = body["code"].toString()
-        let result = body["result"]
-        let name = body["name"]
-
-        // if (code == 0 && result != 8) {
-
-        // }
+        let ll = data.object.ll.ll[1]
         
-        let msg = "抽奖结果 ==> " + name
-        
-        console.log(`${task_name}:\n抽奖结果: 成功\n${response.body}`)
-        $notify(task_name, "抽奖结果: 成功", msg)
+        let msg = `话费  已用:${body.object.leftFlow} 余额:${body.object.leftBalance}\n流量  已用:${ll.ratable_total}${ll.ratable_used} 剩余:${ll.ratable_left}${ll.ratable_unit}`
+
+        console.log(`${task_name}:\n查询成功\n${response.body}`)
+        $notify(task_name, "", msg)
     }, reason => {
-        console.log(`${task_name}:\n抽奖结果: 失败\n${reason.error}`)
-        $notify(task_name, "抽奖结果: 失败", reason.error)
+        console.log(`${task_name}:\n查询失败\n${reason.error}`)
+        $notify(task_name, "查询失败", reason.error)
     })
 }
