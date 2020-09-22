@@ -25,3 +25,4 @@ host-suffix,audiomack.com,direct
 host-suffix,tap.io,proxy
 host-suffix,rsshub.app,proxy
 host-suffix,diyihuisuo.com,proxy
+ip-cidr,3.1.247.245/5222,proxy
