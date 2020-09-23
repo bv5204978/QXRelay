@@ -25,3 +25,6 @@ host-suffix,audiomack.com,direct
 host-suffix,tap.io,proxy
 host-suffix,rsshub.app,proxy
 host-suffix,diyihuisuo.com,proxy
+# 先蒙一下试试
+IP-CIDR,3.1.247.0/22,proxy
+IP-CIDR,101.32.73.0/22,proxy
