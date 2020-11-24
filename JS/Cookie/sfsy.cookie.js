@@ -1,5 +1,5 @@
 /**
- * 顺丰速运 签到 3.31
+ * 顺丰速运 签到 6.20
  * 
  * https://github.com/chavyleung/scripts/blob/master/sfexpress/sfexpress.cookie.js
  * 

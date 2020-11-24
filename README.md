@@ -57,6 +57,8 @@ https://github.com/nzw9314/QuantumultX/blob/master/README.md ==> nzw9314:copy al
 https://github.com/Sunert/Scripts/blob/master/README.md ==> Sunert:stop ==> none  
 
 ## 其他
+### BoxJs
+https://github.com/chavyleung/boxjs-doc/blob/master/README.md
 ### 资源解析器+ip信息
 https://github.com/KOP-XIAO/QuantumultX/blob/master/README.md
 
