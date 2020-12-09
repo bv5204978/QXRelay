@@ -37,8 +37,9 @@ https://github.com/crossutility/Quantumult-X/
 https://www.notion.so/Quantumult-X-1d32ddc6e61c4892ad2ec5ea47f00917  
 https://raw.githubusercontent.com/KOP-XIAO/QuantumultX/master/QuantumultX_Profiles.conf
 #### 参考
-https://github.com/ConnersHua/Profiles/tree/master/Quantumult/X     神机  
+https://github.com/ConnersHua/Profiles/tree/master/Quantumult/X     神机没了  
 https://github.com/lhie1/Rules/blob/master/QuantumultX      QX已停  
+https://github.com/DivineEngine/Profiles/tree/master        new  
 https://github.com/NobyDa/Script/blob/master/README.md  
 https://github.com/privacy-protection-tools/anti-AD     广告  
 
