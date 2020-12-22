@@ -13,7 +13,7 @@
 # 绕过企业证书过期,要清空safari历史记录与网站数据
 #host,ocsp.apple.com,reject
 # 小小影视 acf.huaerdadi.com
-host-suffix,huaerdadi.com,reject
+# host-suffix,huaerdadi.com,reject
 
 
 # direct
