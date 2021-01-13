@@ -98,7 +98,7 @@ $task.fetch(url).then(response => {
         if (i == 0) { 
             time = "Tod"
         } else if (i < 3) {
-            time = ["Tom", "Acq"][i - 1] + "】【" + day + "】【" + week
+            time = ["Tom", "Acq"][i - 1] + "】【" + week //【" + day + "】
         } else {
             time = day + "】【" + week
         }
@@ -113,23 +113,23 @@ $task.fetch(url).then(response => {
         daily_list.push(temp)
     }
 
-    let currHourly = `【${hourly_list[0].time}】  ${hourly_list[0].icon}${hourly_list[0].summary}  ${hourly_list[0].precipProbability}  ${hourly_list[0].temperature}`
-    let currDaily = `【${daily_list[0].time}】  ${daily_list[0].icon}${daily_list[0].summary}  ${daily_list[0].precipProbability}  ${daily_list[0].temperatureMax}/${daily_list[0].temperatureMin}`
+    let currHourly = `【${hourly_list[0].time}】 ${hourly_list[0].icon}${hourly_list[0].summary} ${hourly_list[0].precipProbability} ${hourly_list[0].temperature}`
+    let currDaily = `【${daily_list[0].time}】 ${daily_list[0].icon}${daily_list[0].summary} ${daily_list[0].precipProbability} ${daily_list[0].temperatureMax}/${daily_list[0].temperatureMin}`
 
-    var more = `${currHourly}\n${currDaily}\n【左滑 '查看' 以显示更多天气详情】\n\n`
+    var more = `${currHourly}\n${currDaily}\n【长按显示更多天气】\n\n`
 
     for (let i in hourly_list) {
         if (i == 0) { continue }
 
         let dict = hourly_list[i]
-        more = more + `\n【${dict.time}】  ${dict.icon}${dict.summary}  ${dict.precipProbability}  ${dict.temperature}`
+        more = more + `\n【${dict.time}】 ${dict.icon}${dict.summary} ${dict.precipProbability} ${dict.temperature}`
     }
     more = more + "\n\n"
     for (let i in daily_list) {
         if (i == 0) { continue }
 
         let dict = daily_list[i]
-        more = more + `\n【${dict.time}】\n${dict.icon}${dict.summary}  ${dict.precipProbability}  ${dict.temperatureMax}/${dict.temperatureMin}`
+        more = more + `\n【${dict.time}】\n${dict.icon}${dict.summary} ${dict.precipProbability} ${dict.temperatureMax}/${dict.temperatureMin}`
     }
 
     console.log(`Weath:\n${more}`)
