@@ -122,7 +122,7 @@ $task.fetch(url).then(response => {
         if (i == 0) { continue }
 
         let dict = hourly_list[i]
-        more = more + `\n【${dict.time}】\n${dict.icon}${dict.summary}  ${dict.precipProbability}  ${dict.temperature}`
+        more = more + `\n【${dict.time}】  ${dict.icon}${dict.summary}  ${dict.precipProbability}  ${dict.temperature}`
     }
     more = more + "\n\n"
     for (let i in daily_list) {
