@@ -56,7 +56,7 @@ $task.fetch(url).then(response => {
 
         var temp = {}
 
-        temp["time"] = i == 0 ? "现在" : new Date(hourly_data[i].time * 1000).getHours().toString() + "时"
+        temp["time"] = i == 0 ? "Now" : new Date(hourly_data[i].time * 1000).getHours().toString() + "H"
         temp["icon"] = weathIcon[hourly_data_icon]
         temp["summary"] = hourly_data[i].summary
         temp["temperature"] = Math.round(hourly_data[i].temperature)
@@ -72,7 +72,7 @@ $task.fetch(url).then(response => {
     var daily_list = []
 
     for (var i in daily_data) {
-        if (i > 5) {break}
+        if (i > 3) {break}
 
         var daily_data_icon = daily_data[i].icon;
         if (daily_data_icon.indexOf("clear") != -1) {
@@ -92,13 +92,13 @@ $task.fetch(url).then(response => {
         var temp = {}
 
         let date = new Date(daily_data[i].time * 1000)
-        var day = date.getDate().toString() + "日"
-        let week = ["周日", "周一", "周二", "周三", "周四", "周五", "周六"][date.getDay()]
+        var day = date.getDate().toString() + "D"
+        let week = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"][date.getDay()]
         var time
         if (i == 0) { 
-            time = "今天"
+            time = "Tod"
         } else if (i < 3) {
-            time = ["明天", "后天"][i - 1] + "】【" + day + "】【" + week
+            time = ["Tom", "Acq"][i - 1] + "】【" + day + "】【" + week
         } else {
             time = day + "】【" + week
         }
