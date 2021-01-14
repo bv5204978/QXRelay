@@ -1,0 +1,57 @@
+{
+	"name": "TaskGallery",
+	"description": "Sign In",
+	"task": [{
+		"config": "1 0 * * * https://raw.githubusercontent.com/chavyleung/scripts/master/10000/10000.js, tag=电信营业厅, img-url=https://raw.githubusercontent.com/Orz-3/mini/master/10000.png, update-interval=259200, enabled=true",
+		"addons": "https://raw.githubusercontent.com/bv5204978/QXRelay/master/TaskGallery/10000.txt"
+	}, {
+		"config": "2 0 * * * https://raw.githubusercontent.com/chavyleung/scripts/master/bilibili/bilibili.js, tag=哔哩哔哩, img-url=https://raw.githubusercontent.com/Orz-3/mini/master/bilibili.png, update-interval=259200, enabled=true",
+		"addons": "https://raw.githubusercontent.com/bv5204978/QXRelay/master/TaskGallery/bilibili.txt"
+	}, {
+		"config": "4 0 * * * https://raw.githubusercontent.com/chavyleung/scripts/master/csdn/csdn.js, tag=CSDN, img-url=https://raw.githubusercontent.com/Orz-3/mini/master/csdn.png, update-interval=259200, enabled=true",
+		"addons": "https://raw.githubusercontent.com/bv5204978/QXRelay/master/TaskGallery/csdn.txt"
+	}, {
+		"config": "5 0 * * * https://raw.githubusercontent.com/zZPiglet/Task/master/DiDi/DiDi_new.js, tag=滴滴出行, img-url=https://raw.githubusercontent.com/Orz-3/mini/master/didi.png, update-interval=259200, enabled=true",
+		"addons": "https://raw.githubusercontent.com/bv5204978/QXRelay/master/TaskGallery/didi.txt"
+	}, {
+		"config": "6 0 * * * https://raw.githubusercontent.com/chavyleung/scripts/master/mcdd/mcdd.js, tag=叮咚买菜, img-url=https://raw.githubusercontent.com/Orz-3/mini/master/mcdd.png, update-interval=259200, enabled=true",
+		"addons": "https://raw.githubusercontent.com/bv5204978/QXRelay/master/TaskGallery/dingdong.txt"
+	}, {
+		"config": "7 0 * * * https://raw.githubusercontent.com/songyangzz/QuantumultX/master/elem/elemSign.js, tag=饿了么.签到, img-url=https://raw.githubusercontent.com/Orz-3/mini/master/elem.png, update-interval=259200, enabled=true",
+		"addons": "https://raw.githubusercontent.com/bv5204978/QXRelay/master/TaskGallery/elm.txt"
+	}, {
+		"config": "8 0 * * * https://raw.githubusercontent.com/chavyleung/scripts/master/hellobike/hellobike.js, tag=哈啰单车, img-url=https://raw.githubusercontent.com/Orz-3/mini/master/hellbike.png, update-interval=259200, enabled=true",
+		"addons": "https://raw.githubusercontent.com/bv5204978/QXRelay/master/TaskGallery/haluo.txt"
+	}, {
+		"config": "9 0 * * * https://raw.githubusercontent.com/NobyDa/Script/master/JD-DailyBonus/JD_DailyBonus.js, tag=京东, img-url=https://raw.githubusercontent.com/Orz-3/mini/master/jd.png, update-interval=86400, enabled=true",
+		"addons": "https://raw.githubusercontent.com/bv5204978/QXRelay/master/TaskGallery/jingdong.txt"
+	}, {
+		"config": "10 0 * * * https://raw.githubusercontent.com/chavyleung/scripts/master/jddj/jddj.js, tag=京东到家, img-url=https://raw.githubusercontent.com/Orz-3/mini/master/jd.png, update-interval=259200, enabled=true",
+		"addons": "https://raw.githubusercontent.com/bv5204978/QXRelay/master/TaskGallery/jddj.txt"
+	}, {
+		"config": "11 0 * * * https://raw.githubusercontent.com/chavyleung/scripts/master/meituan/meituan.js, tag=美团, img-url=https://raw.githubusercontent.com/Orz-3/mini/master/meituan.png, update-interval=259200, enabled=true",
+		"addons": "https://raw.githubusercontent.com/bv5204978/QXRelay/master/TaskGallery/meituan.txt"
+	}, {
+		"config": "13 0 * * * https://raw.githubusercontent.com/chavyleung/scripts/master/smzdm/quanx/smzdm.cookie.js, tag=什么值得买, img-url=https://raw.githubusercontent.com/Orz-3/mini/master/smzdm.png, update-interval=259200, enabled=true",
+		"addons": "https://raw.githubusercontent.com/bv5204978/QXRelay/master/TaskGallery/smzdm.txt"
+	}, {
+		"config": "14 0 * * * https://raw.githubusercontent.com/chavyleung/scripts/master/qmkg/qmkg.js, tag=全民K歌, img-url=https://raw.githubusercontent.com/Orz-3/mini/master/qmkg.png, update-interval=259200, enabled=true",
+		"addons": "https://raw.githubusercontent.com/bv5204978/QXRelay/master/TaskGallery/qmkg.txt"
+	}, {
+		"config": "15 0 * * * https://raw.githubusercontent.com/bv5204978/QXRelay/master/JS/CT/tx.wx.10000.ct.js, tag=电信抽奖, img-url=https://raw.githubusercontent.com/Orz-3/mini/master/10000.png, update-interval=259200, enabled=true",
+		"addons": "https://raw.githubusercontent.com/bv5204978/QXRelay/master/TaskGallery/dxcj.txt"
+	}, {
+		"config": "16 0 * * * https://raw.githubusercontent.com/chavyleung/scripts/master/v2ex/quanx/v2ex.js, tag=V2EX, img-url=https://raw.githubusercontent.com/Orz-3/mini/master/v2ex.png, update-interval=259200, enabled=true",
+		"addons": "https://raw.githubusercontent.com/bv5204978/QXRelay/master/TaskGallery/v2ex.txt"
+	}]
+}
+
+// {
+// 	"config": "",
+// 	"addons": "https://raw.githubusercontent.com/bv5204978/QXRelay/master/TaskGallery/.txt"
+// }
+
+// # 3 0 * * * https://raw.githubusercontent.com/zZPiglet/Task/master/Blibee/Blibee.js, tag=便利蜂, img-url=https://raw.githubusercontent.com/Orz-3/mini/master/Blibee.png, update-interval=259200, enabled=true
+// # blibee便利蜂 20.11.14 @zZPiglet https://github.com/zZPiglet/Task/blob/master/Blibee/Blibee.js
+// h5.bianlifeng.com
+// ^https:\/\/h5\.bianlifeng\.com\/meepo\/taskCenter\/home\/v\d url script-request-header https://raw.githubusercontent.com/zZPiglet/Task/master/Blibee/Blibee.js

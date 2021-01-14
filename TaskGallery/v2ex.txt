@@ -1,0 +1,3 @@
+; v2ex 20.1.5 @chavyleung https://github.com/chavyleung/scripts/blob/master/v2ex/quanx/v2ex.cookie.js
+hostname = www.v2ex.com
+^https:\/\/www\.v2ex\.com\/mission\/daily url script-request-header https://raw.githubusercontent.com/chavyleung/scripts/master/v2ex/quanx/v2ex.cookie.js

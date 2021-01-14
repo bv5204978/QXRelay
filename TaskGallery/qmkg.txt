@@ -1,0 +1,3 @@
+; 腾讯.全民K歌 20.3.9 @chavyleung https://github.com/chavyleung/scripts/blob/master/qmkg/qmkg.cookie.js
+hostname = node.kg.qq.com
+^https://node\.kg\.qq\.com/webapp/proxy? url script-request-body https://raw.githubusercontent.com/chavyleung/scripts/master/qmkg/qmkg.cookie.js

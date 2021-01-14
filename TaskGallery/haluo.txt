@@ -1,0 +1,3 @@
+; 哈啰单车 20.4.24 @chavyleung https://github.com/chavyleung/scripts/blob/master/hellobike/hellobike.js
+hostname = gameapi.hellobike.com
+^https:\/\/gameapi\.hellobike\.com\/api url script-request-body https://raw.githubusercontent.com/chavyleung/scripts/master/hellobike/hellobike.js

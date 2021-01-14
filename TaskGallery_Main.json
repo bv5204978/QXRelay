@@ -1,0 +1,13 @@
+{
+	"name": "TaskGallery_Main",
+	"description": "Main",
+	"task": [{
+			"config": "0 10 */3 * * https://raw.githubusercontent.com/elecV2/QuantumultX-Tools/master/dianx/dianx.js, tag=电信金豆兑话费, img-url=https://raw.githubusercontent.com/elecV2/QuantumultX-Tools/master/dianx/dianx.png, enabled=true",
+			"addons": "https://raw.githubusercontent.com/bv5204978/QXRelay/master/TaskGallery/dxhf.txt"
+		},
+		"19 7,18 * * * https://raw.githubusercontent.com/bv5204978/QXRelay/master/JS/Main/weath.task.js, tag=5日天气, img-url=https://raw.githubusercontent.com/Orz-3/mini/master/weather.png, update-interval=259200, enabled=true",
+		"0 8 * * * https://raw.githubusercontent.com/bv5204978/QXRelay/master/JS/Main/holiday.task.js, tag=倒数日, img-url=https://raw.githubusercontent.com/Orz-3/mini/master/daysmatter.png, update-interval=259200, enabled=true",
+		"0 12,20 * * 5 https://raw.githubusercontent.com/bv5204978/QXRelay/master/JS/Main/epic.task.js, tag=Epic限免, img-url=https://raw.githubusercontent.com/Orz-3/mini/master/epic.png, update-interval=259200, enabled=true",
+		"0 7-23 * * * https://raw.githubusercontent.com/bv5204978/QXRelay/master/JS/Main/testflight.task.js, tag=TF车位, img-url=https://raw.githubusercontent.com/Orz-3/mini/master/testflight.png, update-interval=259200, enabled=true"
+	]
+}	

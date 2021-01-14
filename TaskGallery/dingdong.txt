@@ -1,0 +1,3 @@
+; # 叮咚买菜 20.3.20 @chavyleung https://github.com/chavyleung/scripts/blob/master/mcdd/mcdd.cookie.js
+hostname = maicai.api.ddxq.mobi
+^https:\/\/maicai.api.ddxq.mobi\/point\/home url script-request-header https://raw.githubusercontent.com/chavyleung/scripts/master/mcdd/mcdd.cookie.js
