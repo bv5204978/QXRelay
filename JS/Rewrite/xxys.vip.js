@@ -7,8 +7,8 @@
 //  * https://raw.githubusercontent.com/photonmang/quantumultX/master/xxys.js
  * 
  * 
- * MITM = *.xxjjappss.com,*.xjxjappss.com,*.huaerdadi.com
- * ^https:\/\/[a-z0-9]+\.(xxjjappss|xjxjappss|huaerdadi)\.com\/(ssp-svr\/ssp\/list3|vod\/reqplay|ucp\/index|getGlobalData) url script-response-body https://raw.githubusercontent.com/bv5204978/QXRelay/master/JS/Rewrite/xxys.vip.js
+ * MITM = *.xxjjappss.com,*.xiaoxiaoapps.com,*.huaerdadi.com // *.xxjjappss.com,*.xjxjappss.com,*.huaerdadi.com
+ * ^https:\/\/[a-z0-9]+\.(xxjjappss|xiaoxiaoapps|huaerdadi)\.com\/(ssp-svr\/ssp\/list3|vod\/reqplay|ucp\/index|getGlobalData) url script-response-body https://raw.githubusercontent.com/bv5204978/QXRelay/master/JS/Rewrite/xxys.vip.js
  * 
  * 商店下载easyknowlege 
  */
