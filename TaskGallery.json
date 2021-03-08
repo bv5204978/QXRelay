@@ -32,7 +32,7 @@
 		"config": "11 0 * * * https://raw.githubusercontent.com/chavyleung/scripts/master/meituan/meituan.js, tag=美团, img-url=https://raw.githubusercontent.com/Orz-3/mini/master/meituan.png, update-interval=259200, enabled=true",
 		"addons": "https://raw.githubusercontent.com/bv5204978/QXRelay/master/TaskGallery/meituan.txt"
 	}, {
-		"config": "13 0 * * * https://raw.githubusercontent.com/chavyleung/scripts/master/smzdm/quanx/smzdm.cookie.js, tag=什么值得买, img-url=https://raw.githubusercontent.com/Orz-3/mini/master/smzdm.png, update-interval=259200, enabled=true",
+		"config": "13 0 * * * https://raw.githubusercontent.com/chavyleung/scripts/master/smzdm/quanx/smzdm.js, tag=什么值得买, img-url=https://raw.githubusercontent.com/Orz-3/mini/master/smzdm.png, update-interval=259200, enabled=true",
 		"addons": "https://raw.githubusercontent.com/bv5204978/QXRelay/master/TaskGallery/smzdm.txt"
 	}, {
 		"config": "14 0 * * * https://raw.githubusercontent.com/chavyleung/scripts/master/qmkg/qmkg.js, tag=全民K歌, img-url=https://raw.githubusercontent.com/Orz-3/mini/master/qmkg.png, update-interval=259200, enabled=true",
