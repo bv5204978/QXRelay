@@ -95,8 +95,12 @@ function signIn() {
         
         console.log(`${task_name}:\n抽奖结果: 成功\n${response.body}`)
         $notify(task_name, "抽奖结果: 成功", msg)
+
+        $done();
     }, reason => {
         console.log(`${task_name}:\n抽奖结果: 失败\n${reason.error}`)
         $notify(task_name, "抽奖结果: 失败", reason.error)
+
+        $done();
     })
 }

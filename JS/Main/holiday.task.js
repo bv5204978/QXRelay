@@ -90,7 +90,10 @@ $task.fetch(url).then(response => {
         $notify("倒数日", "", more)
     }
 
+    $done();
 }, reason => {
     console.log(`倒数日:\n${reason.error}`)
     $notify("倒数日", "", reason.error)
+
+    $done();
 })

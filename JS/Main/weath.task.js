@@ -134,7 +134,11 @@ $task.fetch(url).then(response => {
 
     console.log(`Weath:\n${more}`)
     $notify("Weath", "", more)
+
+    $done();
 }, reason => {
     console.log(`Weath:\n${reason.error}`)
     $notify("Weath", "", reason.error)
+
+    $done();
 })
