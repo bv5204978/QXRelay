@@ -20,7 +20,7 @@ obj = JSON.parse(str)
 headers
 'Cookie'
 'User-Agent'
-'Content-Type': 'application/json' | ''
+'Content-Type': 'application/json; charset=UTF-8' | 'application/x-www-form-urlencoded'
 'Host': ''
 
 $request
