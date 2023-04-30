@@ -8,7 +8,7 @@
  * 
  * 
  * MITM = yzfhb.ah163.net
- * ^https:\/\/yzfhb\.ah163\.net\/yzfSign2023\/(yzfsignmessage\/generateCheckCode|yzfyearsign\/sign) url script-request-body https://raw.githubusercontent.com/bv5204978/QXRelay/master/JS/CT/yzf.ct.js
+ * ^https:\/\/yzfhb\.ah163\.net\/yzfSign2023\/(yzfsignmessage\/generateCheckCode|yzfyearsign\/sign) url script-request-header https://raw.githubusercontent.com/bv5204978/QXRelay/master/JS/CT/yzf.ct.js
  *
  * 5 0 * * * https://raw.githubusercontent.com/bv5204978/QXRelay/master/JS/CT/yzf.ct.js, tag=翼支付.签到, img-url=https://raw.githubusercontent.com/Orz-3/mini/master/Alpha/10000.png, enabled=true
  * 
@@ -35,7 +35,7 @@ var isBox = false
         $done({})
     } else {
         const msg = await sign()
-        const box = await box()
+        const box = await bbox()
         $notify(taskName, '', msg + box)
         $done()
     }
@@ -105,7 +105,7 @@ function sign() {
 }
 
 
-function box() {
+function bbox() {
 
     if (!isBox) resolve()
 
