@@ -17,9 +17,6 @@
 
 
 
-
-
-
 const taskName = '翼支付.签到'
 const key = 'FAN_yzf'
 
@@ -106,10 +103,9 @@ function sign() {
 
 
 function bbox() {
-
-    if (!isBox) resolve()
-
     return new Promise((resolve) => {
+
+        if (!isBox) resolve()
 
         const str = $prefs.valueForKey(key)
 
