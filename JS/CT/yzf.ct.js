@@ -51,7 +51,7 @@ function getToken() {
         return svk ? 'cookie写入成功' : 'cookie写入失败'
     } else {
         console.log(`🅵🅰🅽\n${taskName} cookie: ${cookieValue}`)
-        return 'cookie&body获取失败'
+        return 'cookie获取失败'
     }
 }
 
@@ -105,7 +105,7 @@ function sign() {
 function bbox() {
     return new Promise((resolve) => {
 
-        if (!isBox) resolve()
+        if (!isBox) resolve('')
 
         const str = $prefs.valueForKey(key)
 
@@ -123,6 +123,7 @@ function bbox() {
             url: url,
             method: 'GET',
             headers: {
+                'User-Agent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 16_4_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 Bestpay/10.66.80 hybridVersion/3.0 /sa-sdk-ios',
                 'Cookie': cookieValue,
             },
             body: ''
