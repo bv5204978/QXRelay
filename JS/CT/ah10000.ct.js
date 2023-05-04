@@ -31,7 +31,8 @@ const isRequest = typeof $request != "undefined"
     } else {
 
         let date = new Date()
-        if (date.getDay >= 3 && date.getDay <= 5) {
+        const weekday = date.getDay()
+        if (weekday >= 3 && weekday <= 5) {
             const lottery = await lottery()
             $notify(taskName, '', lottery)
         }
