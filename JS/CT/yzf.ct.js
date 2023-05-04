@@ -31,8 +31,8 @@ var isBox = false
         $done({})
     } else {
         const msg = await sign()
-        const box = await bbox()
-        $notify(taskName, '', msg + box)
+        const boxmsg = await openbox()
+        $notify(taskName, '', msg + boxmsg)
         $done()
     }
 })()
@@ -101,7 +101,7 @@ function sign() {
 }
 
 
-function bbox() {
+function openbox() {
     return new Promise((resolve) => {
 
         if (!isBox) resolve('')
@@ -122,7 +122,6 @@ function bbox() {
             url: url,
             method: 'GET',
             headers: {
-                'User-Agent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 16_4_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 Bestpay/10.66.80 hybridVersion/3.0 /sa-sdk-ios',
                 'Cookie': cookieValue,
             },
             body: ''

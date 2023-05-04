@@ -8,7 +8,7 @@
  * 
  * 
  * MITM = qy.ah.189.cn
- * ^https:\/\/qy\.ah\.189\.cn\/member\/qyMemberDay\/(index\.html|lottery) url script-request-header https://raw.githubusercontent.com/bv5204978/QXRelay/master/JS/CT/ah10000.ct.js
+ * ^https:\/\/qy\.ah\.189\.cn\/member\/qyMemberDay\/index\.html url script-request-header https://raw.githubusercontent.com/bv5204978/QXRelay/master/JS/CT/ah10000.ct.js
  * 
  * 5 0 * * * https://raw.githubusercontent.com/bv5204978/QXRelay/master/JS/CT/ah10000.ct.js, tag=安徽掌上10000, img-url=https://raw.githubusercontent.com/Orz-3/mini/master/Alpha/10000.png, enabled=true
  * 
@@ -33,8 +33,8 @@ const isRequest = typeof $request != "undefined"
         let date = new Date()
         const weekday = date.getDay()
         if (weekday >= 3 && weekday <= 5) {
-            const lottery = await lottery()
-            $notify(taskName, '', lottery)
+            const lotterymsg = await lottery()
+            $notify(taskName, '', lotterymsg)
         }
 
         $done()
@@ -46,7 +46,7 @@ function getToken() {
 
     if (cookieValue != null) {
 
-        const map = { 'cookie': cookieValue }
+        const map = { 'cookie': cookieValue, 'referer': $request.url }
         const str = JSON.stringify(map)
         const svk = $prefs.setValueForKey(str, key)
 
@@ -71,6 +71,7 @@ function lottery() {
         const map = JSON.parse(str)
 
         const cookieValue = map['cookie']
+        const refererValue = map['referer']
 
         const url = 'https://qy.ah.189.cn/member/qyMemberDay/lottery'
 
@@ -78,8 +79,8 @@ function lottery() {
             url: url,
             method: 'POST',
             headers: {
-                'User-Agent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 16_4_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 Bestpay/10.66.80 hybridVersion/3.0 /sa-sdk-ios',
                 'Cookie': cookieValue,
+                'Referer': refererValue
             },
             body: ''
         }
@@ -107,51 +108,52 @@ function lottery() {
 
 
 
-function tempSign() {
-    return new Promise((resolve) => {
+// function tempSign() {
+//     return new Promise((resolve) => {
 
-        const str = $prefs.valueForKey(key)
+//         const str = $prefs.valueForKey(key)
 
-        if (str == null) {
-            resolve(`请先获取cookie`)
-        }
+//         if (str == null) {
+//             resolve(`请先获取cookie`)
+//         }
 
-        const map = JSON.parse(str)
+//         const map = JSON.parse(str)
 
-        const cookieValue = map['cookie']
+//         const cookieValue = map['cookie']
+//         const refererValue = map['referer']
 
-        const url = 'https://qy.ah.189.cn/member/gardenParty/doSign'
+//         const url = 'https://qy.ah.189.cn/member/gardenParty/doSign'
 
-        const req = {
-            url: url,
-            method: 'POST',
-            headers: {
-                'User-Agent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 16_4_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 Bestpay/10.66.80 hybridVersion/3.0 /sa-sdk-ios',
-                'Cookie': cookieValue,
-            },
-            body: ''
-        }
+//         const req = {
+//             url: url,
+//             method: 'POST',
+//             headers: {
+//                 'Cookie': cookieValue,
+//                 'Referer': refererValue
+//             },
+//             body: ''
+//         }
 
-        $task.fetch(req).then(response => {
-            console.log(`🅵🅰🅽\n${taskName} ${url} 请求成功: ${response.body}`)
+//         $task.fetch(req).then(response => {
+//             console.log(`🅵🅰🅽\n${taskName} ${url} 请求成功: ${response.body}`)
 
-            if (response.statusCode == 200) {
-                const body = JSON.parse(response.body)
+//             if (response.statusCode == 200) {
+//                 const body = JSON.parse(response.body)
 
-                if (body.code == 200) {
-                    resolve(`${body.msg}`)
-                }
-                resolve(`翻牌失败: ${body.msg}`)
-            }
-            resolve(`翻牌失败: ${response.statusCode}`)
+//                 if (body.code == 200) {
+//                     resolve(`${body.msg}`)
+//                 }
+//                 resolve(`翻牌失败: ${body.msg}`)
+//             }
+//             resolve(`翻牌失败: ${response.statusCode}`)
 
-        }, reason => {
-            console.log(`🅵🅰🅽\n${taskName} ${url} 请求失败: ${reason.error}`)
-            resolve(`请求失败: ${reason.error}`)
-        })
+//         }, reason => {
+//             console.log(`🅵🅰🅽\n${taskName} ${url} 请求失败: ${reason.error}`)
+//             resolve(`请求失败: ${reason.error}`)
+//         })
 
-    })
-}
+//     })
+// }
 
 
 
