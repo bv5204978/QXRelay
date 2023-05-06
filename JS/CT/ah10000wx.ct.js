@@ -73,7 +73,7 @@ function sign() {
             url: url,
             method: 'POST',
             headers: {
-                'User-Agent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 16_4_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 Bestpay/10.66.80 hybridVersion/3.0 /sa-sdk-ios',
+                'Content-Type' : `application/x-www-form-urlencoded; charset=UTF-8`,
                 'Cookie': cookieValue,
             },
             body: bodyValue
