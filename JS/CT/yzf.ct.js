@@ -21,8 +21,8 @@ const key = 'FAN_yzf'
 
 const isRequest = typeof $request != "undefined"
 
-//是否开宝箱
-var isBox = false
+//连签宝箱
+var numDayBox = 0
 
 !(async function () {
     if (isRequest) {
@@ -85,7 +85,7 @@ function sign() {
                 const body = JSON.parse(response.body)
 
                 if (body.code == 200) {
-                    box = body.lxxb + 1 >= 7
+                    numDayBox = body.lxxb + 1
                     resolve(`${body.msg}`)
                 }
                 resolve(`签到失败: ${body.msg}`)
@@ -104,7 +104,7 @@ function sign() {
 function openbox() {
     return new Promise((resolve) => {
 
-        if (!isBox) resolve('')
+        if (numDayBox < 7) resolve(`连签${numDayBox}日`)
 
         const str = $prefs.valueForKey(key)
 
@@ -134,7 +134,6 @@ function openbox() {
                 const body = JSON.parse(response.body)
 
                 if (body.code == 200) {
-                    box = body.lxxb + 1 >= 7
                     resolve(`${body.msg}`)
                 }
                 resolve(`开宝箱失败: ${body.msg}`)
