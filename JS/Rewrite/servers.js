@@ -31,7 +31,7 @@ var Base64 = { _keyStr: "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz012
     const isSuccess = body.match(/ssr:\/\/[A-Za-z0-9+\/\-_]*/) != null
     console.log(isSuccess ? `Telescope节点 获取成功\n${body}` : `Telescope节点 获取失败\n${body}`)
 
-    $done({ status: 'HTTP/1.1 200 OK', headers: headers, body: isSuccess ? body : 'fan.github.com:404:auth_aes128_md5:none:tls1.2_ticket_auth:cGFzc3dvcmQ/?remarks=5pqC5peg5Y+v55So6IqC54K5&protoparam=MjY1NDEzOnZFUDYzMWRMa3U&obfsparam=b2Jmc3BhcmFt' })
+    $done({ status: 'HTTP/1.1 200 OK', headers: headers, body: isSuccess ? body : `ssr://${Base64.encode('fan.github.com:404:auth_aes128_md5:none:tls1.2_ticket_auth:cGFzc3dvcmQ/?remarks=5pqC5peg5Y+v55So6IqC54K5&protoparam=MjY1NDEzOnZFUDYzMWRMa3U&obfsparam=b2Jmc3BhcmFt')}` })
   } else if ($request.path.match("xxx") != null) {
     // var body = await getMrdoorVPN()
 
