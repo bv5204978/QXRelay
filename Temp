@@ -1,3 +1,6 @@
+
+
+
 # Record
 
 # 流量来啦 AES加密
@@ -55,6 +58,13 @@ c5aae6639f0a47bb8067086f47e2656963b7c40e31a07bf09fc2ba22861aa0e002ee10b0f9cf6643
 
 
 #wait
+
+# 今日限免
+https://raw.githubusercontent.com/MCdasheng/QuantumultX/main/Scripts/myScripts/Appraven.js, tag=Appraven今日限免, img-url=applelogo.system, enabled=true
+其中有请求 https://appraven.net/AppRaven/app?t=sn&qt=pd&pr=Free&mr=0&mrc=0&ml=0&pg=0&g=Any&d=Universal&rare=0
+
+
+
 趣听音乐
 ^https?:\/\/api\.bspapp\.com\/client$ url script-response-body
 var body = $response.body.replace(/needVerify":true/g, 'needVerify":false').replace(/code":\d+/g, 'code":0');
@@ -107,6 +117,9 @@ function re() {
 
 QX TF log
 https://github.com/ddgksf2013/Profile/blob/master/QX_TestFlight_Update.log
+
+
+
 
 
 图标

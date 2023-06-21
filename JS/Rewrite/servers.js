@@ -31,7 +31,7 @@ var Base64 = { _keyStr: "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz012
     const isSuccess = body.match(/ssr:\/\/[A-Za-z0-9+\/\-_]*/) != null
     console.log(isSuccess ? `Telescope节点 获取成功\n${body}` : `Telescope节点 获取失败\n${body}`)
 
-    $done({ status: 'HTTP/1.1 200 OK', headers: headers, body: isSuccess ? body : '' })
+    $done({ status: 'HTTP/1.1 200 OK', headers: headers, body: isSuccess ? body : 'fan.github.com:404:auth_aes128_md5:none:tls1.2_ticket_auth:cGFzc3dvcmQ/?remarks=5pqC5peg5Y+v55So6IqC54K5&protoparam=MjY1NDEzOnZFUDYzMWRMa3U&obfsparam=b2Jmc3BhcmFt' })
   } else if ($request.path.match("xxx") != null) {
     // var body = await getMrdoorVPN()
 
@@ -49,21 +49,26 @@ var Base64 = { _keyStr: "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz012
 function getTelescope() {
   return new Promise((resolve) => {
 
+    // 外传token
+    let i = $request.path.indexOf('?')
+    let token = i != -1 ? $request.path.substring(i + 1) : 'd327b0df4873e3e2020578ae77083ae059634ca7'
+
     const url = 'https://api-2.quickg.cc/api/v5/nodes/'
 
     const headers = {
+      'Accept': `application/json`,
       'Connection': `keep-alive`,
       'Accept-Encoding': `gzip, deflate, br`,
       'channel': `GW`,
-      'User-Agent': `Telescope/212 CFNetwork/1335.0.3 Darwin/21.6.0`,
+      'User-Agent': `Telescope/219 CFNetwork/1220.1 Darwin/20.3.0`,
       'platform': `ios`,
       'imei': `b701879655ba4615ad07dccea06d1ef0`,
-      'Authorization': `Token 9ca3dd2f4e84af2a190ed8775d3aa543585fe62c`,
-      'systemVersion': `15.6.1`,
-      'Host': `api-2.quickg.cc`,
-      'appVersion': `2.1.1`,
-      'Accept-Language': `zh-CN,zh-Hans;q=0.9`,
-      'Accept': `application/json`
+      'Authorization': `Token ${token}`,
+      'systemVersion': `14.4`,
+      'Host': `gateway-2.quickg.cc`,
+      'appVersion': `2.1.7`,
+      'Accept-Language': `zh-cn`,
+      'appBuild': `219`
     };
 
     const req = {
