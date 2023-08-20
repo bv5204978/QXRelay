@@ -18,10 +18,17 @@ obj = JSON.parse(str)
 
 // Rewrite
 headers
+headers:{
 'Cookie'
 'User-Agent'
 'Content-Type': 'application/json; charset=UTF-8' | 'application/x-www-form-urlencoded'
 'Host': ''
+}
+
+//不允许重定向？
+opts
+'opts':{'redirection':false}
+
 
 $request
 $request.sessionIndex 9
