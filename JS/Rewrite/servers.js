@@ -1,7 +1,9 @@
 /**
  * Telescope节点获取
- * 数据来自 https://t.me/yqc_123/1484 据说有效期90天
- * 账号 yqcrack@gmail.com @yqc_123
+ * https://apps.apple.com/app/telescope/id1572301158
+ * 账号
+ * yqcrack@gmail.com @yqc_123
+ * dydcssr003@163.com tg@sharebooks4you
  * 
  * @fan 2022.11.14
  * 2022.11.18 up:更新token (如令牌失效可自行mitapp替换请求token)
