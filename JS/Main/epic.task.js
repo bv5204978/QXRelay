@@ -24,8 +24,8 @@ async function checkUpdate() {
         let url = item.match(/<link>([\s\S]*?)<\/link>/)[1];
         let imgurl = item.match(/<img src=\"(.*)\" referrerpolicy/)[1];
         let notificationURL = {
-            "open-url": url,
-            "media-url": imgurl
+            "open-url": url
+            // "media-url": imgurl
         }
         let time = item.match(/<pubDate>([\s\S]*?)<\/pubDate>/)[1];
         let description = item.match(/<p>([\s\S]*?)<\/p>/)[1];
